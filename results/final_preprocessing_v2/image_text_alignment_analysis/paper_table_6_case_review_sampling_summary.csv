@@ -1,0 +1,8 @@
+案例類型,案例數,建議用途
+high_alignment_correct,20,圖文一致且模型正確，用於說明圖片與文字一致時的代表案例。
+low_alignment_correct,20,圖文不一致但模型正確，用於檢查模型是否主要依賴文字訊號。
+low_alignment_error,20,圖文不一致且模型錯誤，用於分析影像噪音或弱標籤限制。
+multimodal_false_positive,20,多模態 FP，用於分析圖片是否推高負類風險。
+largest_abs_delta_p,20,加入圖片後風險分數變化最大，用於分析圖片影響方向。
+multimodal_false_negative,20,多模態 FN，用於分析圖片是否稀釋正類文字訊號。
+high_alignment_error,14,圖文一致但模型錯誤，用於檢查即使一致仍誤判的限制。

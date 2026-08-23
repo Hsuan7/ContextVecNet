@@ -1,0 +1,2 @@
+experiment,group,fold,window_size,model,modality,text_embedding,image_embedding,calibration,calibration_fit_split,threshold_strategy,threshold_selection_split,evaluation_split,threshold,temperature,platt_a,platt_b,accuracy,precision,recall,f1,auc,nll,log_loss,brier,ece_10,n_samples
+bert_clip_w32_fold2,final_preprocessing_v2,2,32,multimodal-transformer,both,bert,clip,none,none,validation_f1,validation,test,0.17775622278585643,,,,0.7586206896551724,0.65,1.0,0.7878787878787878,0.9519230769230769,0.33120289133721303,0.33120289133721303,0.09697272333361158,0.11280231647003214,58

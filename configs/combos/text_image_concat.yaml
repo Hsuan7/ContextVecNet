@@ -1,0 +1,6 @@
+$extends$: configs/base_config.yaml
+
+model: text-image-concat
+modality: both
+image_embeddings_type: clip
+text_embeddings_type: clip

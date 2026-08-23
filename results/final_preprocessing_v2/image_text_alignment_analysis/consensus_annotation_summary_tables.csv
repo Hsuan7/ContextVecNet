@@ -1,0 +1,12 @@
+field,category,N,percent
+manual_text_image_consistency,一致,46,86.8
+manual_text_image_consistency,部分一致,5,9.4
+manual_text_image_consistency,不一致,2,3.8
+manual_image_extra_signal,無,46,86.8
+manual_image_extra_signal,有,4,7.5
+manual_image_extra_signal,不明確,3,5.7
+manual_image_effect,無明顯影響,27,50.9
+manual_image_effect,干擾,14,26.4
+manual_image_effect,幫助,12,22.6
+manual_identifiable_info,是,36,67.9
+manual_identifiable_info,否,17,32.1

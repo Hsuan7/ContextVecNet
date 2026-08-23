@@ -1,0 +1,7 @@
+模型,輸入,AUC,F1,Accuracy,Precision,Recall,Interpretation
+Text-only CLIP,caption text embedding,0.8529 +/- 0.0385,0.7587 +/- 0.0374,0.7637 +/- 0.0332,0.6964 +/- 0.0395,0.8385 +/- 0.0834,文字語意基準
+Image-only CLIP,image embedding,0.7927 +/- 0.0311,0.7112 +/- 0.0160,0.6851 +/- 0.0399,0.6077 +/- 0.0514,0.8692 +/- 0.0798,影像弱標籤訊號
+Text+Image concat,text + image concatenation,尚未完成,尚未完成,尚未完成,尚未完成,尚未完成,簡單融合 baseline
+Multimodal ContextVecNet (CLIP/CLIP),text + image + cross-attention + temporal module,0.8525 +/- 0.0455,0.7316 +/- 0.0329,0.7259 +/- 0.0450,0.6577 +/- 0.0658,0.8385 +/- 0.0996,原始 CLIP/CLIP 多模態架構 baseline
+Text-only BERT-base Chinese,BERT caption embedding,0.8995 +/- 0.0411,0.7801 +/- 0.0329,0.7977 +/- 0.0423,0.7821 +/- 0.1180,0.8077 +/- 0.1304,強文字 baseline
+BERT+Image CLIP,BERT text + CLIP image,0.9033 +/- 0.0404,0.7799 +/- 0.0595,0.7909 +/- 0.0760,0.7747 +/- 0.1425,0.8231 +/- 0.1429,主要多模態比較模型

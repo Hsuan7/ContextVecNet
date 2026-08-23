@@ -1,0 +1,12 @@
+$extends$: configs/base_config.yaml
+
+model: lstm-baseline
+modality: both
+image_embeddings_type: clip
+text_embeddings_type: clip
+
+lstm_args:
+  hidden_size: 32
+  n_layers: 1
+  dropout_prob: 0.0
+  bidirectional: True

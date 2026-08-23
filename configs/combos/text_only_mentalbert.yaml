@@ -1,0 +1,9 @@
+$extends$: configs/base_config.yaml
+
+modality: text
+image_embeddings_type: clip
+text_embeddings_type: bert
+bert_model_name: zwzzz/Chinese-MentalBERT
+bert_max_length: 128
+bert_post_batch_size: 8
+bert_finetune: False

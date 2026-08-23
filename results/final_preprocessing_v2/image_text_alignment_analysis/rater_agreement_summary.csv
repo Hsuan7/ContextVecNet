@@ -1,0 +1,4 @@
+field,N,agreement_n,agreement_rate,cohen_kappa,labels
+manual_text_image_consistency,53,45,0.8490566037735849,0.31723027375201285,一致;不一致;部分一致
+manual_image_extra_signal,53,46,0.8679245283018868,0.5315656565656566,不明確;有;無
+manual_image_effect,53,46,0.8679245283018868,0.7916900617630545,幫助;干擾;無明顯影響

@@ -1,0 +1,7 @@
+Alignment group,Model,N users,AUC,F1,Accuracy,Precision,Recall,Interpretation
+High,Text-only BERT,73,0.9333,0.8736,0.8493,0.8085,0.9500,
+High,BERT+Image CLIP,73,0.9303,0.8444,0.8082,0.7600,0.9500,圖文語意較一致；本資料中 Text-only BERT 表現較高，顯示文字語意已足夠強，圖片未必進一步提升。
+Medium,Text-only BERT,145,0.9197,0.7833,0.8207,0.7344,0.8393,
+Medium,BERT+Image CLIP,145,0.9222,0.7931,0.8345,0.7667,0.8214,圖文有部分關聯；BERT+Image CLIP 的 AUC/F1 略高，代表圖片可能提供有限輔助。
+Low,Text-only BERT,73,0.7886,0.6333,0.6986,0.7037,0.5758,
+Low,BERT+Image CLIP,73,0.7909,0.6567,0.6849,0.6471,0.6667,圖文語意較不一致；BERT+Image CLIP 的 recall/F1 略高但 precision 較低，顯示圖片可能同時帶來輔助與噪音。

@@ -1,0 +1,54 @@
+#####################################################
+#####################################################
+TEXT_EMBEDDING_SIZES:
+  clip: 512
+  bert: 768
+
+IMAGE_EMBEDDING_SIZES:
+  clip: 512
+####################################################
+#####################################################
+
+dataset: twitter
+num_folds: 5 # 5
+fold: 0
+
+# can be image, text, both
+modality: both
+
+use_class_weights: False #False # True
+
+model: multimodal-transformer
+
+# can be tim2vec, learned or zero
+position_embeddings: time2vec
+
+# can be relative or delta
+timestamp_kind: 'relative'
+
+image_embeddings_type: clip
+text_embeddings_type: clip
+
+bert_model_name: bert-base-chinese
+bert_max_length: 128
+bert_post_batch_size: 8
+bert_finetune: False
+
+# can be sin or cos
+time2vec_activation: sin
+
+window_size: 64 # 128 
+
+base_lr: 0.00001
+
+cross_encoder_args:
+  embedding_size: 32 # 128
+  n_heads: 2 # 8
+  n_layers: 1 # 4
+  dropout_prob: 0.3 # 0.1
+
+final_encoder_args:
+  embedding_size: 32 # 128
+  n_heads: 1 # 4
+  n_layers: 1 # 2
+  dropout_prob: 0.3 #0.1

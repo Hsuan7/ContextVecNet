@@ -1,0 +1,8 @@
+實際抽樣來源,N,抽樣條件說明
+largest_abs_delta_p_top20,18,|p_multimodal - p_text-only| 最大 top 20，去重後保留18筆
+low_similarity_top20,14,Low similarity top 20，去重後單獨保留14筆
+multimodal_false_positive_top10,9,Multimodal FP top 10，去重後單獨保留9筆
+multimodal_false_negative_top10;low_similarity_top20,5,同時屬於 FN top 10 與 Low similarity top 20
+multimodal_false_negative_top10,5,Multimodal FN top 10，去重後單獨保留5筆
+multimodal_false_positive_top10;largest_abs_delta_p_top20,1,同時屬於 FP top 10 與最大差異 top 20
+low_similarity_top20;largest_abs_delta_p_top20,1,同時屬於 Low similarity top 20 與最大差異 top 20

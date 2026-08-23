@@ -1,0 +1,6 @@
+案例類型,抽樣條件,53筆中符合條件N,備註
+圖文一致且模型正確,High image-text alignment + TP/TN,3,依53筆共識檔中的 user_alignment_group 與 multimodal_error_type 事後歸類。
+圖文一致但模型錯誤,High image-text alignment + FP/FN,6,依53筆共識檔中的 user_alignment_group 與 multimodal_error_type 事後歸類。
+圖文不一致且模型正確,Low image-text alignment + TP/TN,16,依53筆共識檔中的 user_alignment_group 與 multimodal_error_type 事後歸類。
+圖文不一致且模型錯誤,Low image-text alignment + FP/FN,10,依53筆共識檔中的 user_alignment_group 與 multimodal_error_type 事後歸類。
+模型差異最大案例,|p_multimodal - p_text-only| 最大 top 20,20,此類可能與前四類重疊，因此各列N不可直接相加為53。
