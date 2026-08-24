@@ -1,0 +1,2 @@
+﻿comparison,valid_count,overall_agreement,macro_per_class_agreement,macro_f1,cohen_kappa
+Annotator 1 vs Annotator 2,300,0.7833333333333333,,0.7694973824374004,0.7177185871453386

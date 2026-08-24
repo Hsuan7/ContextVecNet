@@ -1,0 +1,6 @@
+﻿label,human_annotation_count,agreement_count,per_class_agreement
+O,12,6,0.5
+D,7,4,0.5714285714285714
+W,4,3,0.75
+A,3,1,0.3333333333333333
+U,10,10,1.0

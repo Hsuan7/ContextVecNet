@@ -1,7 +1,11 @@
 # Ignore large artefacts and environment files
 checkpoints/
 final_model/
-datasets/
+data/
+raw_data/
+processed_data/
+MultiModalDataset/
+ContextVecNet_Instagram*/
 MultiModalDataset.tgz
 wandb/
 __pycache__/

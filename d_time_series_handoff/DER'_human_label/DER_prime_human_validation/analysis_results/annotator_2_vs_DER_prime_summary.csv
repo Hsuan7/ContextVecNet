@@ -1,0 +1,2 @@
+﻿comparison,valid_count,overall_agreement,macro_per_class_agreement,macro_f1,cohen_kappa
+Annotator 2 vs DER_prime,300,0.62,0.6939089716996877,0.6231224340232618,0.525

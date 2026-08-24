@@ -1,126 +1,141 @@
+﻿# ContextVecNet Instagram Depression Risk Experiments
 
-# 🌐 ContextVecNet  
-### *A Context-Driven Multimodal Learning Framework for Depression Detection from Social Media*
+This repository is the handoff version of the thesis project **Multimodal Time-Series Modeling of User-Level Depression Risk Signals from Traditional Chinese Instagram Data**. It is based on the original ContextVecNet codebase, but the main experiment flow, dataset preparation, weak-label analysis, calibration evaluation, robustness checks, and result tables were adapted for this Instagram user-level study.
 
-![License](https://img.shields.io/badge/license-MIT-green.svg)  
-![Python](https://img.shields.io/badge/python-3.9+-blue.svg)  
-![Framework](https://img.shields.io/badge/dependencies-PyTorch|CLIP-lightgrey)  
-![Status](https://img.shields.io/badge/status-Research%20Project-orange)
+## What Is Included
 
----
-
-## 🧠 Abstract
-
-**ContextVecNet** introduces a novel multimodal deep learning architecture that accurately detects signs of depression from social media content. Unlike prior methods, it jointly models **textual** and **visual** modalities while incorporating **context vectors** and **time-aware embeddings** to track the evolution of user behavior. Our approach leverages:
-
-- 🖼️ **CLIP-based encoders** for vision-language understanding  
-- 🔁 A **cross-modal transformer** for modality fusion  
-- ⏱️ **Temporal embeddings** to capture behavioral progression  
-- 🔑 **Learnable context vectors** to enhance representation depth  
-
-📈 **Results** on a public multimodal Twitter dataset:  
-- **AUC:** `0.9922`  
-- **F1-Score:** `0.9619`  
-
-> ❗ Freezing context vectors significantly lowers performance—highlighting their importance in dynamic learning.
-
----
-
-### 🖼️ Graphical Abstract
-
-![Graphical Abstract](assets/graphical_abstract.png)
-
----
-
-## 🚀 Getting Started
-
-### 🔧 Prerequisites
-- Python 3.9+
-- Anaconda or Miniconda
-- CUDA-compatible GPU recommended (e.g., NVIDIA A100)
-
----
-
-### 📦 Installation
-
-#### 1. Clone the repository
-
-```bash
-git clone https://github.com/shahkhalid/ContextVecNet.git
-cd ContextVecNet
+```text
+configs/                         Model and experiment configuration files
+callbacks/                       Training callbacks
+clip/                            Local CLIP implementation used by the model
+datasets/                        Dataset loaders and window-level dataset code
+evaluators/                      Evaluation utilities
+loggers/                         Logging wrapper
+models/                          ContextVecNet and supporting model modules
+trainer/                         Training loop implementation
+particular_model_trainers/       Original trainer-related modules
+results/                         Final CSV tables, predictions, reliability plots, and robustness outputs
+d_time_series_handoff/           Small scripts, notebooks, and annotation files copied from D:\時間序列
+FINAL_EXPERIMENTS.md             Detailed commands for the final experiments
+DATA.md                          Dataset placement, excluded large folders, and handoff notes
 ```
 
-#### 2. Download the dataset
+The old script below is from the original repository and is **not** the main entry point for this thesis project:
 
 ```bash
-gdown 11ye00sHFY5re2NOBRKreg-tVbDNrc7Xd
+experiments/run_experiments.sh
 ```
 
-#### 3. Extract the dataset
+## Main Experiment Entry Point
+
+The primary experiment driver is:
 
 ```bash
-tar -xvzf MultiModalDataset.tgz
+./run_final_experiments.sh
 ```
 
-#### 4. Set up the environment
+It supports the environment variables documented in `FINAL_EXPERIMENTS.md`, including:
+
+```bash
+DRY_RUN=1 ./run_final_experiments.sh
+ACTION=train ./run_final_experiments.sh
+ACTION=evaluate ./run_final_experiments.sh
+FOLDS="0" EPOCHS=2 PATIENCE=2 ./run_final_experiments.sh
+SECTIONS="methods" METHODS="contextvecnet text_bert" ./run_final_experiments.sh
+```
+
+Auxiliary scripts:
+
+```bash
+./run_robustness_supplement.sh
+./run_v2_uncalibrated_validation_f1.sh
+```
+
+## Environment
+
+The recommended setup is the Conda environment:
 
 ```bash
 conda env create -f env.yml
 conda activate contextvecnet
 ```
 
-### 🏁 Running the Experiments
+`env.yml` is more complete than `requirements.txt` and includes packages used by the final scripts, such as `scipy`, `matplotlib`, `ftfy`, `regex`, and `wandb`.
+
+If the Python path in the shell scripts does not match the new machine, override it:
 
 ```bash
-# Run all training and evaluation scripts
-bash experiments/run_experiments.sh
+PYTHON_BIN=$(which python) DRY_RUN=1 ./run_final_experiments.sh
 ```
 
----
+## Data
 
+Large Instagram datasets, image folders, intermediate feature files, and checkpoints are **not included in GitHub** because of privacy and file-size constraints. See `DATA.md` for the expected folder layout and the external handoff items.
 
-## 📊 Results
+In short, place external data under ignored folders such as:
 
-### 📌 Table 1: Performance Metrics Across 5-Fold Cross-Validation
+```text
+data/
+raw_data/
+processed_data/
+ContextVecNet_Instagram*/
+MultiModalDataset/
+checkpoints/
+```
 
-| Fold     | Accuracy | AUC    | Precision | Recall | F1-score |
-|----------|----------|--------|-----------|--------|----------|
-| Fold-1   | 0.9696   | 0.9943 | 0.9781    | 0.9607 | 0.9693   |
-| Fold-2   | 0.9642   | 0.9902 | 0.9814    | 0.9464 | 0.9636   |
-| Fold-3   | 0.9482   | 0.9900 | 0.9771    | 0.9178 | 0.9465   |
-| Fold-4   | 0.9589   | 0.9902 | 0.9672    | 0.9500 | 0.9585   |
-| Fold-5   | 0.9714   | 0.9961 | 0.9782    | 0.9642 | 0.9642   |
-| **Avg.** | **0.9625** | **0.9922** | **0.9765** | **0.9479** | **0.9619** |
+These folders are intentionally ignored by `.gitignore`.
 
----
+## Final Results
 
-### 📌 Table 2: Comparison with Existing Literature
+Final experiment outputs are stored under:
 
-| Model                               | Accuracy | AUC    | Precision | Recall | F1-score |
-|-------------------------------------|----------|--------|-----------|--------|----------|
-| Time2Vec Transformer                | 0.9310   | 0.9310 | 0.9310    | 0.9310 | 0.9310   |
-| METN                                | 0.9450   | 0.9450 | 0.9450    | 0.9450 | 0.9450   |
-| ContextVecNet (context vectors frozen) | 0.9143   | 0.9574 | 0.9283    | 0.8986 | 0.9131   |
-| **ContextVecNet**                   | **0.9625** | **0.9922** | **0.9765** | **0.9479** | **0.9619** |
+```text
+results/final_preprocessing_v2/
+results/robustness_supplement/
+results/baselines/
+```
 
----
+Important summary files include:
 
-## 🙏 Acknowledgements
+```text
+results/final_preprocessing_v2/all_results_summary.csv
+results/final_preprocessing_v2/method_and_modality_comparison.csv
+results/final_preprocessing_v2/calibration_comparison.csv
+results/final_preprocessing_v2/window_size_comparison.csv
+results/robustness_supplement/label_noise/label_noise_summary.csv
+results/robustness_supplement/input_perturbations/bert_clip/w64/input_perturbation_summary.csv
+```
 
-We would like to thank the authors of the following repositories for their inspiring and foundational work:
+## Weak-Label And Preprocessing Handoff
 
-- [Time-Enriched Multimodal Depression Detection](https://github.com/cosmaadrian/time-enriched-multimodal-depression-detection)  
-- [Multimodal Prompt Learning](https://github.com/muzairkhattak/multimodal-prompt-learning)
+Small scripts and notebooks copied from `D:\時間序列` are stored in:
 
----
+```text
+d_time_series_handoff/
+```
 
+This folder includes weak-label sensitivity scripts, dataset filtering/counting scripts, annotation samples, and small window-level artifacts. Larger raw or processed datasets are documented in `DATA.md` instead of being committed to GitHub.
 
-## 💬 Contact
+## Recommended Handoff Workflow
 
-For questions, feedback, or collaborations:  
-📧 [waleedbintahir27@gmail.com](mailto:waleedbintahir27@gmail.com)
+1. Clone this repository.
+2. Create the Conda environment with `env.yml`.
+3. Obtain the external dataset/checkpoint package from the project owner.
+4. Place external folders according to `DATA.md`.
+5. Run a dry-run command first:
 
----
+```bash
+PYTHON_BIN=$(which python) DRY_RUN=1 ./run_final_experiments.sh
+```
 
-> **🧠 “Mental health needs a great deal of attention. It's the final taboo and it needs to be faced and dealt with.” — Adam Ant**
+6. Run a small smoke test before full training:
 
+```bash
+PYTHON_BIN=$(which python) FOLDS="0" EPOCHS=2 PATIENCE=2 ./run_final_experiments.sh
+```
+
+7. Use `FINAL_EXPERIMENTS.md` for full training, evaluation, and aggregation commands.
+
+## Attribution
+
+This project is based on the original ContextVecNet implementation and adapts it for Traditional Chinese Instagram user-level depression risk modeling, 14-day weak-label construction, calibration analysis, modality comparison, window-size analysis, and robustness evaluation.
