@@ -1,40 +1,40 @@
-﻿# ContextVecNet Instagram Depression Risk Experiments
+﻿# ContextVecNet Instagram 憂鬱風險實驗交接版
 
-This repository is the handoff version of the thesis project **Multimodal Time-Series Modeling of User-Level Depression Risk Signals from Traditional Chinese Instagram Data**. It is based on the original ContextVecNet codebase, but the main experiment flow, dataset preparation, weak-label analysis, calibration evaluation, robustness checks, and result tables were adapted for this Instagram user-level study.
+本 repository 是論文 **「繁體中文 Instagram 使用者層級憂鬱風險訊號之多模態時間序列建模」** 的交接版本。此版本基於原始 ContextVecNet 程式碼修改，並整理成本研究使用的 Instagram 使用者層級實驗流程，包含 14 天弱標籤分析、資料前處理、模型訓練、校準比較、模態比較、視窗大小分析、穩健性分析與最終結果表。
 
-## What Is Included
+## 內容概要
 
 ```text
-configs/                         Model and experiment configuration files
-callbacks/                       Training callbacks
-clip/                            Local CLIP implementation used by the model
-datasets/                        Dataset loaders and window-level dataset code
-evaluators/                      Evaluation utilities
-loggers/                         Logging wrapper
-models/                          ContextVecNet and supporting model modules
-trainer/                         Training loop implementation
-particular_model_trainers/       Original trainer-related modules
-results/                         Final CSV tables, predictions, reliability plots, and robustness outputs
-d_time_series_handoff/           Small scripts, notebooks, and annotation files copied from D:\時間序列
-FINAL_EXPERIMENTS.md             Detailed commands for the final experiments
-DATA.md                          Dataset placement, excluded large folders, and handoff notes
+configs/                         模型與實驗設定檔
+callbacks/                       訓練 callbacks
+clip/                            本研究使用的本地 CLIP 實作
+datasets/                        Dataset loader 與 window-level dataset 程式
+evaluators/                      評估工具
+loggers/                         logging wrapper
+models/                          ContextVecNet 與相關模型模組
+trainer/                         訓練流程
+particular_model_trainers/       原始專案中的 trainer 相關模組
+results/                         最終 CSV 結果、預測檔、reliability 圖與 robustness 結果
+d_time_series_handoff/           從 D:\時間序列 複製進來的小型程式、notebook 與標註檔
+FINAL_EXPERIMENTS.md             最終實驗執行指令與參數說明
+DATA.md                          大型資料夾、外部資料放置位置與不上傳原因
 ```
 
-The old script below is from the original repository and is **not** the main entry point for this thesis project:
+以下腳本是原作者版本的舊實驗入口，**不是本論文主要實驗流程**：
 
 ```bash
 experiments/run_experiments.sh
 ```
 
-## Main Experiment Entry Point
+## 主要實驗入口
 
-The primary experiment driver is:
+本研究主要實驗驅動腳本是：
 
 ```bash
 ./run_final_experiments.sh
 ```
 
-It supports the environment variables documented in `FINAL_EXPERIMENTS.md`, including:
+常用執行方式如下。完整說明請看 `FINAL_EXPERIMENTS.md`。
 
 ```bash
 DRY_RUN=1 ./run_final_experiments.sh
@@ -44,35 +44,35 @@ FOLDS="0" EPOCHS=2 PATIENCE=2 ./run_final_experiments.sh
 SECTIONS="methods" METHODS="contextvecnet text_bert" ./run_final_experiments.sh
 ```
 
-Auxiliary scripts:
+輔助實驗腳本：
 
 ```bash
 ./run_robustness_supplement.sh
 ./run_v2_uncalibrated_validation_f1.sh
 ```
 
-## Environment
+## 環境設定
 
-The recommended setup is the Conda environment:
+建議使用 Conda 建立環境：
 
 ```bash
 conda env create -f env.yml
 conda activate contextvecnet
 ```
 
-`env.yml` is more complete than `requirements.txt` and includes packages used by the final scripts, such as `scipy`, `matplotlib`, `ftfy`, `regex`, and `wandb`.
+`env.yml` 比 `requirements.txt` 完整，包含最終實驗會用到的 `scipy`、`matplotlib`、`ftfy`、`regex`、`wandb` 等套件。
 
-If the Python path in the shell scripts does not match the new machine, override it:
+如果 shell script 裡預設的 Python 路徑不符合新機器，可以用 `PYTHON_BIN` 指定目前環境的 Python：
 
 ```bash
 PYTHON_BIN=$(which python) DRY_RUN=1 ./run_final_experiments.sh
 ```
 
-## Data
+## 資料說明
 
-Large Instagram datasets, image folders, intermediate feature files, and checkpoints are **not included in GitHub** because of privacy and file-size constraints. See `DATA.md` for the expected folder layout and the external handoff items.
+完整 Instagram 資料集、圖片資料夾、大型中間特徵檔與 checkpoint **沒有放在 GitHub**。原因是檔案太大，而且可能包含 Instagram 使用者內容或衍生資料，需用私人方式交接，例如外接硬碟、Google Drive、OneDrive 或實驗室伺服器。
 
-In short, place external data under ignored folders such as:
+外部資料建議放在這些被 `.gitignore` 忽略的位置：
 
 ```text
 data/
@@ -83,11 +83,11 @@ MultiModalDataset/
 checkpoints/
 ```
 
-These folders are intentionally ignored by `.gitignore`.
+詳細資料夾用途與建議放置方式請看 `DATA.md`。
 
-## Final Results
+## 最終結果
 
-Final experiment outputs are stored under:
+本 repo 已包含最終實驗的主要結果，位置如下：
 
 ```text
 results/final_preprocessing_v2/
@@ -95,7 +95,7 @@ results/robustness_supplement/
 results/baselines/
 ```
 
-Important summary files include:
+常用摘要檔：
 
 ```text
 results/final_preprocessing_v2/all_results_summary.csv
@@ -106,36 +106,38 @@ results/robustness_supplement/label_noise/label_noise_summary.csv
 results/robustness_supplement/input_perturbations/bert_clip/w64/input_perturbation_summary.csv
 ```
 
-## Weak-Label And Preprocessing Handoff
+這些結果讓接手者即使沒有立即重跑 GPU 實驗，也能檢查論文中的主要表格、預測結果與補充分析。
 
-Small scripts and notebooks copied from `D:\時間序列` are stored in:
+## 弱標籤與前處理交接資料
+
+從 `D:\時間序列` 複製進來的小型程式、notebook、標註 CSV 與小型 window-level artifacts 放在：
 
 ```text
 d_time_series_handoff/
 ```
 
-This folder includes weak-label sensitivity scripts, dataset filtering/counting scripts, annotation samples, and small window-level artifacts. Larger raw or processed datasets are documented in `DATA.md` instead of being committed to GitHub.
+此資料夾包含弱標籤敏感度分析、資料集過濾、使用者與貼文數統計、人工標註樣本、DER prime 與人工標註比較，以及小型 window-level 資料。大型原始資料與大型中間資料沒有放進 GitHub，而是記錄在 `DATA.md`。
 
-## Recommended Handoff Workflow
+## 建議交接流程
 
-1. Clone this repository.
-2. Create the Conda environment with `env.yml`.
-3. Obtain the external dataset/checkpoint package from the project owner.
-4. Place external folders according to `DATA.md`.
-5. Run a dry-run command first:
+1. Clone 此 repository。
+2. 使用 `env.yml` 建立 Conda 環境。
+3. 向專案交接者取得外部資料集與 checkpoint。
+4. 依照 `DATA.md` 將外部資料放到建議位置。
+5. 先執行 dry run，確認路徑與指令展開是否正常：
 
 ```bash
 PYTHON_BIN=$(which python) DRY_RUN=1 ./run_final_experiments.sh
 ```
 
-6. Run a small smoke test before full training:
+6. 再執行一個小型 smoke test：
 
 ```bash
 PYTHON_BIN=$(which python) FOLDS="0" EPOCHS=2 PATIENCE=2 ./run_final_experiments.sh
 ```
 
-7. Use `FINAL_EXPERIMENTS.md` for full training, evaluation, and aggregation commands.
+7. 若 smoke test 正常，再依照 `FINAL_EXPERIMENTS.md` 執行完整訓練、評估與彙整。
 
 ## Attribution
 
-This project is based on the original ContextVecNet implementation and adapts it for Traditional Chinese Instagram user-level depression risk modeling, 14-day weak-label construction, calibration analysis, modality comparison, window-size analysis, and robustness evaluation.
+本研究基於原始 ContextVecNet 實作進行修改，並將其應用於繁體中文 Instagram 使用者層級憂鬱風險建模、14 天弱標籤建構、校準分析、模態比較、視窗大小分析與穩健性分析。
