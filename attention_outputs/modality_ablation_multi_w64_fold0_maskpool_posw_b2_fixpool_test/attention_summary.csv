@@ -1,0 +1,3 @@
+﻿user_id,label,raw_prob,logit,text_valid_count,image_valid_count,output_dir
+moodie_raven,1,0.5310309529304504,0.12428352981805801,64,64,attention_outputs/modality_ablation_multi_w64_fold0_maskpool_posw_b2_fixpool_test/moodie_raven
+depressy.trouble,1,0.5148999094963074,0.05961737781763077,64,64,attention_outputs/modality_ablation_multi_w64_fold0_maskpool_posw_b2_fixpool_test/depressy.trouble

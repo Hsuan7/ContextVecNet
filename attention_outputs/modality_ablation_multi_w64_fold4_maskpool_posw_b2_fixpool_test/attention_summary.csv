@@ -1,0 +1,5 @@
+﻿user_id,label,raw_prob,logit,text_valid_count,image_valid_count,output_dir
+blue.sea.life,1,0.6451389789581299,0.5977393984794617,64,64,attention_outputs/modality_ablation_multi_w64_fold4_maskpool_posw_b2_fixpool_test/blue.sea.life
+fenkychen0827,1,0.48592332005500793,-0.056321606040000916,64,64,attention_outputs/modality_ablation_multi_w64_fold4_maskpool_posw_b2_fixpool_test/fenkychen0827
+lam_word,0,0.6294564604759216,0.5298858880996704,64,64,attention_outputs/modality_ablation_multi_w64_fold4_maskpool_posw_b2_fixpool_test/lam_word
+frog_egghead,0,0.4178520441055298,-0.331597238779068,64,64,attention_outputs/modality_ablation_multi_w64_fold4_maskpool_posw_b2_fixpool_test/frog_egghead

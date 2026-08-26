@@ -1,0 +1,2 @@
+﻿user_id,label,raw_prob,logit,text_valid_count,image_valid_count,output_dir
+morgan_stanley168,0,0.5571879744529724,0.2297573983669281,20,20,attention_outputs/modality_ablation_multi_w64_fold2_maskpool_posw_b2_fixpool_test/morgan_stanley168

@@ -1,0 +1,7 @@
+﻿feature,mean_abs_shap
+threshold,0.044280275220450256
+text_valid_ratio,0.016859873878465007
+text_valid_count,0.016604854641444185
+image_valid_ratio,0.008364148658308533
+padding_amount,0.00788899088022511
+image_valid_count,0.007764295884942962

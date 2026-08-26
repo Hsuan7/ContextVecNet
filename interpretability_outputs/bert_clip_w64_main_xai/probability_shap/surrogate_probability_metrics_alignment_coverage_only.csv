@@ -1,0 +1,2 @@
+﻿target,feature_set,n,r2_in_sample,mae_in_sample,target_mean,target_std
+multimodal_probability,alignment_coverage_only,292,0.5478021420093461,0.19513266282561656,0.41534276684063975,0.3428794646164574

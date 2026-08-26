@@ -1,4 +1,4 @@
-﻿# 資料交接說明
+# 資料交接說明
 
 本 repository 不包含完整 Instagram 資料集、大型圖片資料夾、大型中間特徵檔或模型 checkpoint。這些檔案請用私人儲存空間另外交接，例如外接硬碟、Google Drive、OneDrive 或實驗室伺服器。
 
@@ -103,6 +103,11 @@ ContextVecNet/
 results/final_preprocessing_v2/
 results/robustness_supplement/
 results/baselines/
+interpretability_outputs/
+attention_outputs/
+timeline_outputs/
+timeline_instability_outputs/
+llm_handoff/
 ```
 
 這些檔案可讓接手者檢查論文中的主要實驗結果，而不需要立刻重跑所有 GPU 實驗。

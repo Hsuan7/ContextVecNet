@@ -1,4 +1,4 @@
-﻿# ContextVecNet Instagram 憂鬱風險實驗交接版
+# ContextVecNet Instagram 憂鬱風險實驗交接版
 
 本 repository 是論文 **「繁體中文 Instagram 使用者層級憂鬱風險訊號之多模態時間序列建模」** 的交接版本。此版本基於原始 ContextVecNet 程式碼修改，並整理成本研究使用的 Instagram 使用者層級實驗流程，包含 14 天弱標籤分析、資料前處理、模型訓練、校準比較、模態比較、視窗大小分析、穩健性分析與最終結果表。
 
@@ -93,6 +93,10 @@ checkpoints/
 results/final_preprocessing_v2/
 results/robustness_supplement/
 results/baselines/
+interpretability_outputs/
+attention_outputs/
+timeline_outputs/
+timeline_instability_outputs/
 ```
 
 常用摘要檔：

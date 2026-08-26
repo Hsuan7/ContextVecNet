@@ -1,0 +1,2 @@
+﻿user_id,label,raw_prob,logit,text_valid_count,image_valid_count,output_dir
+hug_molly.tw,1,0.5350056886672974,0.14025232195854187,33,33,attention_outputs/modality_ablation_multi_w64_fold1_maskpool_posw_b2_fixpool_test/hug_molly.tw

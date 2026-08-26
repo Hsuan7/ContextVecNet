@@ -1,0 +1,6 @@
+﻿user_id,fold,error_type,output_dir
+iamfinety2.0,0,FP,interpretability_outputs/bert_clip_w64_main_xai/occlusion_attention_cases/iamfinety2.0
+theforlorn_1025,2,TP,interpretability_outputs/bert_clip_w64_main_xai/occlusion_attention_cases/theforlorn_1025
+janniedudu,2,FP,interpretability_outputs/bert_clip_w64_main_xai/occlusion_attention_cases/janniedudu
+food.nius,3,TN,interpretability_outputs/bert_clip_w64_main_xai/occlusion_attention_cases/food.nius
+si_je_meurs,3,FN,interpretability_outputs/bert_clip_w64_main_xai/occlusion_attention_cases/si_je_meurs

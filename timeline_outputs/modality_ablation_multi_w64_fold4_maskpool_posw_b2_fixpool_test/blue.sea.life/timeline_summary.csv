@@ -1,0 +1,2 @@
+﻿user_id,label,raw_prob,calibrated_prob,logit,threshold,pred,text_valid_count,image_valid_count,highest_risk_position,highest_attention_position
+blue.sea.life,1,0.6451389789581299,0.5658457109144613,0.5977393984794617,0.39937051508060206,1,64,64,37,19

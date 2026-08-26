@@ -1,0 +1,2 @@
+SHAP was not run. Install shap in the environment to enable SHAP outputs.
+Error: Per-column arrays must each be 1-dimensional
