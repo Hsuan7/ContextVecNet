@@ -1,4 +1,4 @@
-# ContextVecNet Instagram 憂鬱風險實驗交接版
+﻿# ContextVecNet Instagram 憂鬱風險實驗交接版
 
 本 repository 是論文 **「繁體中文 Instagram 使用者層級憂鬱風險訊號之多模態時間序列建模」** 的交接版本。此版本基於原始 ContextVecNet 程式碼修改，並整理成本研究使用的 Instagram 使用者層級實驗流程，包含 14 天弱標籤分析、資料前處理、模型訓練、校準比較、模態比較、視窗大小分析、穩健性分析與最終結果表。
 
@@ -16,8 +16,12 @@ trainer/                         訓練流程
 particular_model_trainers/       原始專案中的 trainer 相關模組
 results/                         最終 CSV 結果、預測檔、reliability 圖與 robustness 結果
 d_time_series_handoff/           從 D:\時間序列 複製進來的小型程式、notebook 與標註檔
+HANDOFF.md                      專案交接總覽與接手者閱讀順序
+RUN_ORDER.md                    依實驗分類的完整執行順序
+PROGRAM_INDEX.md                每個主要程式與資料夾用途索引
 FINAL_EXPERIMENTS.md             最終實驗執行指令與參數說明
 DATA.md                          大型資料夾、外部資料放置位置與不上傳原因
+MODEL_ARTIFACTS.md               訓練模型權重與 checkpoint 外部交接說明
 ```
 
 以下腳本是原作者版本的舊實驗入口，**不是本論文主要實驗流程**：
@@ -83,7 +87,7 @@ MultiModalDataset/
 checkpoints/
 ```
 
-詳細資料夾用途與建議放置方式請看 `DATA.md`。
+交接總覽請先看 `HANDOFF.md`；執行順序請看 `RUN_ORDER.md`；程式用途請看 `PROGRAM_INDEX.md`；資料夾用途與建議放置方式請看 `DATA.md`。訓練模型與 checkpoint 的外部交接方式請看 `MODEL_ARTIFACTS.md`。
 
 ## 最終結果
 
@@ -145,3 +149,4 @@ PYTHON_BIN=$(which python) FOLDS="0" EPOCHS=2 PATIENCE=2 ./run_final_experiments
 ## Attribution
 
 本研究基於原始 ContextVecNet 實作進行修改，並將其應用於繁體中文 Instagram 使用者層級憂鬱風險建模、14 天弱標籤建構、校準分析、模態比較、視窗大小分析與穩健性分析。
+
