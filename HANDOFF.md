@@ -31,7 +31,8 @@ https://github.com/Hsuan7/ContextVecNet
 | Timeline 視覺化 | `timeline_outputs/`, `timeline_instability_outputs/` | 使用者風險軌跡與 instability 分析 | 是 |
 | D 槽小型交接資料 | `d_time_series_handoff/` | 弱標籤、前處理、標註檢查、小型 notebook | 是 |
 | LLM 小型交接資料 | `llm_handoff/` | LLM notebook、小型 synthetic 結果、model metadata | 是 |
-| 完整 Instagram dataset | `data/` 或外部硬碟 | 大型原始/前處理資料 | 否，需外部交接 |
+| 取得 Instagram dataset | `D:\時間序列\depress_dataset` | 大型原始/前處理資料 | 否，需外部交接 |
+| 最終 Instagram dataset | `D:\時間序列\ContextVecNet_Instagram_filtered_new` | 最終資料集 | 否，需外部交接 |
 | 訓練模型 checkpoint | `checkpoints/`, `final_model/`, `D:\llm` | 大型模型權重 | 否，需外部交接 |
 
 ## 四、接手者最小復現需求
@@ -51,18 +52,7 @@ Windows + WSL2 Ubuntu + Conda + CUDA GPU
 
 可以用 VSCode 編輯，但建議用 WSL terminal 執行 `.sh` 腳本，不建議直接用 Windows PowerShell 跑。
 
-## 六、是否需要把程式檔名改成 `1_`, `2_`
-
-不建議。現有腳本與 Python import 已使用固定檔名，改名容易造成找不到檔案或 import error。建議保留原檔名，改用文件管理順序：
-
-```text
-RUN_ORDER.md       說明實驗執行順序
-PROGRAM_INDEX.md   說明每個程式用途
-DATA.md            說明資料位置
-MODEL_ARTIFACTS.md 說明模型權重位置
-```
-
-## 七、交接時另外提供的外部資料
+## 六、交接時另外提供的外部資料
 
 請用外接硬碟、私人雲端或實驗室伺服器提供：
 
