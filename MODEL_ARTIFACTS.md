@@ -20,7 +20,7 @@ llm_handoff/
 原始位置：
 
 ```text
-/home/angle/ContextVecNet/checkpoints/
+\\wsl$\Ubuntu\home\angle\ContextVecNet\checkpoints
 ```
 
 建議在新環境放置為：
