@@ -4,7 +4,7 @@ All results from the corrected text and image preprocessing pipeline are stored
 below:
 
 ```text
-results/final_preprocessing_v1/
+results/final_preprocessing_v2/
   methods/
     contextvecnet/w64/
     text_bert/w64/
@@ -67,7 +67,8 @@ chmod +x run_final_experiments.sh
 This trains and evaluates:
 
 - Full ContextVecNet
-- Text-only Chinese MentalBERT (`zwzzz/Chinese-MentalBERT`)
+- Bert+Image Clip
+- Text-only bert-base-chinese
 - Text-only CLIP
 - Image-only CLIP
 - Text+Image concat
@@ -127,6 +128,7 @@ Run one method at a time:
 
 ```bash
 SECTIONS="methods" METHODS="contextvecnet" ./run_final_experiments.sh
+SECTIONS="methods" METHODS="bert_clip" ./run_final_experiments.sh
 SECTIONS="methods" METHODS="text_bert" ./run_final_experiments.sh
 SECTIONS="methods" METHODS="text_clip" ./run_final_experiments.sh
 SECTIONS="methods" METHODS="image_clip" ./run_final_experiments.sh
